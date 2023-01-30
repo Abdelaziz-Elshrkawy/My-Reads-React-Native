@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {View, Text, Button, ScrollView} from 'react-native';
+import React, {useCallback, useEffect} from 'react';
+import {View, Text, Button, ScrollView, Linking} from 'react-native';
 import {useNavigate} from 'react-router-native';
 import Shelves from './Shelves';
 
@@ -17,6 +17,9 @@ const ShelvesContainer = ({
   useEffect(() => {
     getAllBooks();
   });
+  const openGitHub = useCallback(async () => {
+    await Linking.openURL('https://github.com/Abdelaziz-Elshrkawy/My-Reads-React-Native')
+  })
   return (
     <View style={{alignItems: 'center', marginBottom: 300, marginTop: 15}}>
       <View
@@ -38,6 +41,9 @@ const ShelvesContainer = ({
           My Reads
         </Text>
       </View>
+      <View style={{position: 'absolute', left: 5, top: 5}}>
+        <Button title='GitHub Link' color={'#22272e'} onPress={openGitHub} />
+        </View>
       <View style={{ alignSelf: 'center', width: '100%', marginBottom: -110}}>
          <ScrollView style={{
         flexGrow: 1,
@@ -73,3 +79,5 @@ const ShelvesContainer = ({
 };
 
 export default ShelvesContainer;
+
+
