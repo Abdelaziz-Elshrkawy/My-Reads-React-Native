@@ -6,7 +6,6 @@ import Shelves from './Shelves';
 const ShelvesContainer = ({
   updateOption,
   allBooks,
-  updateBooks,
   pageShelves,
   getAllBooks,
 }) => {
@@ -16,7 +15,7 @@ const ShelvesContainer = ({
   };
   useEffect(() => {
     getAllBooks();
-  });
+  },[]);
   const openGitHub = useCallback(async () => {
     await Linking.openURL('https://github.com/Abdelaziz-Elshrkawy/My-Reads-React-Native')
   })
@@ -44,16 +43,16 @@ const ShelvesContainer = ({
       <View style={{position: 'absolute', left: 5, top: 5}}>
         <Button title='GitHub Link' color={'#22272e'} onPress={openGitHub} />
         </View>
-      <View style={{ alignSelf: 'center', width: '100%', marginBottom: -110}}>
+      <View style={{ alignSelf: 'center', width: '100%', marginBottom: -110, position:'relative', zIndex: -1}}>
          <ScrollView style={{
         flexGrow: 1,
       }}>
         {pageShelves.map(e => {
           return (
             <Shelves
-              updateBooks={updateBooks}
               updateOption={updateOption}
               allBooks={allBooks}
+              getAllBooks={getAllBooks}
               key={e}
               name={e}
             />

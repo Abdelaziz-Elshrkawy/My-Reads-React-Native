@@ -6,8 +6,6 @@ import Book from '../Book/Book';
 import { useNavigate } from 'react-router-native';
 
 const SearchPage = ({
-  updateOption,
-  updateBooks,
   getAllBooks,
   allBooks,
   shelves,
@@ -71,10 +69,10 @@ const SearchPage = ({
           flexDirection: 'row',
           marginTop: 15,
         }}>
-        <View style={{ flex: 0.14, marginTop: 5 }}>
+        <View style={{ flex: 0.14, marginTop: 7 }}>
           <Button
             color="dodgerblue"
-            style={{ marginBottom: 5, marginTop: 2, paddingvertical: 5 }}
+            style={{ marginBottom: 5, marginTop: 3, paddingvertical: 5 }}
             onPress={() => {
               getAllBooks();
               navigate();
@@ -98,7 +96,7 @@ const SearchPage = ({
           />
         </View>
       </View>
-      <View style={{ marginBottom: 150 }}>
+      <View style={{ marginBottom: 180 }}>
         <ScrollView
           Style={{
             flexGrow: 1,
@@ -119,8 +117,8 @@ const SearchPage = ({
               searchBooks.length > 0 ? (
                 searchBooks.map(book => {
                   return (
-                    <View key={book.id}>
-                      <Book book={book} imageDimension={imageDimension} />
+                    <View key={book.id} style={{marginTop: 40}}>
+                      <Book book={book} imageDimension={imageDimension} getAllBooks={getAllBooks} />
                     </View>
                   );
                 })

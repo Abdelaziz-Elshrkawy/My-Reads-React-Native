@@ -1,15 +1,15 @@
 import {View, Text, Image} from 'react-native';
 import Book from '../Book/Book';
 import React from 'react';
-const Shelves = ({name, allBooks, updateOption, updateBooks}) => {
+const Shelves = ({ name, allBooks, updateOption, getAllBooks }) => {
   const shelfBooks = allBooks.filter(
     e =>
       e.shelf ===
       `${name.charAt(0).toLowerCase()}${name.slice(1).split(' ').join('')}`,
   );
   const imageDimension = {
-    height: 130,
-    width: 90,
+    height: 150,
+    width: 120,
   };
   return (
     <View key={name} style={{marginBottom: 18, borderBottomWidth: 0.5, width: '97%', alignSelf: 'center', paddingBottom: 8}}>
@@ -17,9 +17,10 @@ const Shelves = ({name, allBooks, updateOption, updateBooks}) => {
         <Text
           style={{
             alignSelf: 'center',
-            fontSize: 15,
+            fontSize: 22,
             fontWeight: 'bold',
             color: 'black',
+            marginBottom: 10
           }}>
           {name}
         </Text>
@@ -37,6 +38,7 @@ const Shelves = ({name, allBooks, updateOption, updateBooks}) => {
               updateOption={updateOption}
               key={book.id}
               imageDimension={imageDimension}
+              getAllBooks={getAllBooks}
             />
           );
         })}

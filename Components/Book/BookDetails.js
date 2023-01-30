@@ -64,8 +64,8 @@ const BookDetails = ({getAllBooks}) => {
                 }}
                 source={imageLink}
               />
-              <View>
-                <Option book={book} />
+              <View style={{ width: imageDimension.width, position: 'relative', top: 0, zIndex: 999, alignSelf: 'center' }}>
+                <Option book={book} getAllBooks={getAllBooks} imageDimension={imageDimension} />
               </View>
               <View>
                 <Text
