@@ -20,7 +20,7 @@ const ShelvesContainer = ({
     await Linking.openURL('https://github.com/Abdelaziz-Elshrkawy/My-Reads-React-Native')
   })
   return (
-    <View style={{alignItems: 'center', marginBottom: 300, marginTop: 15}}>
+    <View style={{alignItems: 'center', marginBottom: 300, marginTop: 20}}>
       <View
         style={{
           height: 45,
