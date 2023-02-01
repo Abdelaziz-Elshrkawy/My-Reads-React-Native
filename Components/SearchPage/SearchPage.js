@@ -14,6 +14,7 @@ const SearchPage = ({
   const navigate = () => {
     nav('/');
   };
+  const componentState = 'search'
   const imageDimension = {
     height: 190,
     width: 120,
@@ -118,7 +119,7 @@ const SearchPage = ({
                 searchBooks.map(book => {
                   return (
                     <View key={book.id} style={{marginTop: 40}}>
-                      <Book book={book} imageDimension={imageDimension} getAllBooks={getAllBooks} />
+                      <Book book={book} imageDimension={imageDimension} getAllBooks={getAllBooks} componentState={componentState} />
                     </View>
                   );
                 })

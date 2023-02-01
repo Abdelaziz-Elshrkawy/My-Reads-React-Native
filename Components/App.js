@@ -16,10 +16,6 @@ const App = () => {
       setAllBooks(data);
     });
   };
-  const updateOption = async (value, book) => {
-    await update(book, value);
-    getAllBooks();
-  };
   const pageShelves = shelves.map(
     e => `${e.charAt(0).toUpperCase()}${e.slice(1).split('-').join(' ')}`,
   );
@@ -36,7 +32,6 @@ const App = () => {
                 getAllBooks={getAllBooks}
                 pageShelves={pageShelves}
                 allBooks={allBooks}
-                updateOption={updateOption}
               />
             }
           />
@@ -48,7 +43,6 @@ const App = () => {
                 getAllBooks={getAllBooks}
                 shelves={shelves}
                 allBooks={allBooks}
-                updateOption={updateOption}
               />
             }
           />

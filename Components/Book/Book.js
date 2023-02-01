@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { Link, useNavigate } from 'react-router-native';
 import Option from './Option';
-const Book = ({ book, imageDimension, getAllBooks }) => {
+const Book = ({ book, imageDimension, getAllBooks, componentState }) => {
   const nav = useNavigate();
   const urlParams = () => {
     nav(
@@ -15,7 +15,7 @@ const Book = ({ book, imageDimension, getAllBooks }) => {
   return (
     <View>
       <View style={{ width: imageDimension.width+2, position: 'relative', top: 0, zIndex: 999, alignSelf: 'center' }}>
-        <Option book={book} getAllBooks={getAllBooks} imageDimension={imageDimension} />
+        <Option book={book} getAllBooks={getAllBooks} imageDimension={imageDimension} componentState={componentState} />
       </View>
       <TouchableOpacity onPress={urlParams}>
         <View key={book.id}>

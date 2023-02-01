@@ -2,6 +2,7 @@ import {View, Text, Image} from 'react-native';
 import Book from '../Book/Book';
 import React from 'react';
 const Shelves = ({ name, allBooks, updateOption, getAllBooks }) => {
+  const componentState = 'shelves'
   const shelfBooks = allBooks.filter(
     e =>
       e.shelf ===
@@ -34,6 +35,7 @@ const Shelves = ({ name, allBooks, updateOption, getAllBooks }) => {
         {shelfBooks.map(book => {
           return (
             <Book
+              componentState={componentState}
               book={book}
               updateOption={updateOption}
               key={book.id}

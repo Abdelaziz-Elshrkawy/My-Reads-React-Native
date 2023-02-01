@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list';
 import { update } from '../../API/BooksAPI';
-const Option = ({ book, getAllBooks, imageDimension }) => {
+const Option = ({ book, getAllBooks, imageDimension, componentState }) => {
   const [shelf, setShelf] = useState('');
   const data = [
     { key: 1, value: 'Currently Reading' },
@@ -23,28 +23,27 @@ const Option = ({ book, getAllBooks, imageDimension }) => {
     setShelf(value);
   };
   const defaultKey = (data.filter(e => {
-      const noSpaceValue = e.value.split(' ').join('')
-      return `${noSpaceValue.charAt(0).toLocaleLowerCase()}${noSpaceValue.slice(1)}` === book.shelf
+    const noSpaceValue = e.value.split(' ').join('')
+    return `${noSpaceValue.charAt(0).toLocaleLowerCase()}${noSpaceValue.slice(1)}` === book.shelf
   }))[0].key
-  console.log(shelf,11)
   return (
     <View>
       <SelectList
         data={data}
-        dropdownStyles={{ position: 'absolute', top: 35, backgroundColor: '#fff', width: imageDimension.width, opacity: 0.7}}
+        dropdownStyles={{ position: 'absolute', top: 35, backgroundColor: '#fff', width: imageDimension.width, opacity: 0.7 }}
         inputStyles={{ fontSize: 11 }}
-        boxStyles={{paddingVertical: 6}}
+        boxStyles={{ paddingVertical: 6 }}
         setSelected={updateShelf}
         dropdownItemStyles={{ margin: -2 }}
-        defaultOption={{ key: defaultKey, value: data[defaultKey-1].value }}
+        defaultOption={{ key: defaultKey, value: data[defaultKey - 1].value }}
         search={false}
         onSelect={async () => {
           await update(book, finalShelfValueOnSelect);
-          getAllBooks()
+          componentState === 'shelves' ? getAllBooks() : false
         }}
       />
     </View>
   );
-}; 
+};
 
 export default Option;
