@@ -31,9 +31,9 @@ const ShelvesContainer = ({
         }}>
         <Text
           style={{
-            marginTop: 5,
+            marginTop: 3,
             alignSelf: 'center',
-            fontSize: 25,
+            fontSize: 28,
             fontWeight: 'bold',
             color: '#000',
           }}>
@@ -43,7 +43,7 @@ const ShelvesContainer = ({
       <View style={{position: 'absolute', left: 5, top: 5}}>
         <Button title='GitHub Link' color={'#22272e'} onPress={openGitHub} />
         </View>
-      <View style={{ alignSelf: 'center', width: '100%', marginBottom: -110, position:'relative', zIndex: -1}}>
+      <View style={{ alignSelf: 'center', width: '100%', marginBottom: -110}}>
          <ScrollView style={{
         flexGrow: 1,
       }}>

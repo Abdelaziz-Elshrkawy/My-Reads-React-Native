@@ -19,22 +19,20 @@ const Option = ({ book, getAllBooks, imageDimension, componentState }) => {
   const finalShelfValueOnSelect = `${shelfValueOnSelect
     .charAt(0)
     .toLowerCase()}${shelfValueOnSelect.slice(1)}`;
-  const updateShelf = async value => {
-    setShelf(value);
-  };
   const defaultKey = (data.filter(e => {
     const noSpaceValue = e.value.split(' ').join('')
     return `${noSpaceValue.charAt(0).toLocaleLowerCase()}${noSpaceValue.slice(1)}` === book.shelf
   }))[0].key
   return (
-    <View>
+    <View style={{ marginTop: 10}}>
       <SelectList
         data={data}
-        dropdownStyles={{ position: 'absolute', top: 35, backgroundColor: '#fff', width: imageDimension.width, opacity: 0.7 }}
+        dropdownStyles={{ position: 'absolute', top: 29, backgroundColor: '#fff', width: imageDimension.width, opacity: 0.8, alignSelf: 'center' }}
         inputStyles={{ fontSize: 11 }}
         boxStyles={{ paddingVertical: 6 }}
-        setSelected={updateShelf}
+        setSelected={setShelf}
         dropdownItemStyles={{ margin: -2 }}
+        dropdownTextStyles={{textAlign: 'center', fontSize: 12, fontWeight: 'bold'}}
         defaultOption={{ key: defaultKey, value: data[defaultKey - 1].value }}
         search={false}
         onSelect={async () => {
